@@ -1,3 +1,11 @@
+# HigherLower
+
+A recreation of the popular online game, where you are given two search terms and vote
+on which one you think has more monthly Google searches. The aim is for this to take
+generic data sources (eg country population, Pokémon stats).
+
+---
+
 # Create T3 App
 
 This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
