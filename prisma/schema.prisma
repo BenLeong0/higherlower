@@ -10,6 +10,11 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id String @id @default(cuid())
+model Scores {
+    id        String   @id @default(cuid())
+    name      String
+    category  String
+    score     Int
+
+    createdAt DateTime @default(now())
 }
