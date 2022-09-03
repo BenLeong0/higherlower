@@ -9,13 +9,12 @@ interface GameProps {
 
 const Game: React.FC<GameProps> = ({  }) => {
   const router = useRouter();
-  const category = router.query?.category;
+  if (router.isReady === false) return <Loader />;
 
-  if (typeof category !== "string") return <div>invalid</div>
-
+  const category = router.query.category as string;
   const resp = trpc.useQuery(["get_options", { category }]);
 
-  if (!resp.data) return <div>Invalid</div>
+  if (!resp.data) return <div>Invalid category</div>
 
   return (
     <>
