@@ -1,8 +1,9 @@
-const EXAMPLE_OPTIONS = {
-    "category": "countries",
-    "pretext": "has a population of",
-    "posttext": null,
-    "options": [
+const category = "countries";
+const pretext = "has a population of";
+const posttext = null;
+
+function getOptions() {
+    return [
         {
             "id": "united-kingdom",
             "title": "United Kingdom",
@@ -21,9 +22,8 @@ const EXAMPLE_OPTIONS = {
             "value": 125800000,
             "img": "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg"
         },
-    ]
-}
+    ];
+};
 
-export default function getOptions() {
-    return EXAMPLE_OPTIONS;
-}
+const module = { category, pretext, posttext, getOptions };
+export default module;

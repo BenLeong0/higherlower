@@ -3,19 +3,30 @@ import { createRouter } from "./context";
 import superjson from "superjson";
 import { z } from "zod";
 
-import getOptions from "../categories/coordinator"
+import { getOption, getInitialOptions } from "../categories/coordinator"
 
 
 export const appRouter = createRouter()
   .transformer(superjson)
-  .query("get_options", {
+  .query("get-option", {
+    input: z
+      .object({
+        category: z.string(),
+        excludeId: z.string().optional(),
+      }),
+    resolve({ input }) {
+      const { category, excludeId } = input;
+      return getOption(category, excludeId);
+    }
+  })
+  .query("get-category-info", {
     input: z
       .object({
         category: z.string(),
       }),
     resolve({ input }) {
       const { category } = input;
-      return getOptions(category);
+      return getInitialOptions(category);
     }
   })
   .query("score", {
